@@ -10,6 +10,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.allisnail.nowar.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <facetType implementation="com.github.allisnail.nowar.facet.WebFacetType"/>
     </extensions>
 
     <applicationListeners>
