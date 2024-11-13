@@ -7,7 +7,6 @@ import com.intellij.facet.ui.FacetEditorContext
 import com.intellij.facet.ui.FacetEditorTab
 import com.intellij.facet.ui.FacetValidatorsManager
 import com.intellij.openapi.module.Module
-import com.intellij.openapi.module.ModuleType
 import com.intellij.openapi.util.InvalidDataException
 import com.intellij.openapi.util.WriteExternalException
 import org.jdom.Element
