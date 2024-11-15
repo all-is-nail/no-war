@@ -4,19 +4,17 @@ import com.github.allisnail.nowar.facet.model.WebModuleDeploymentDescriptor
 import com.intellij.facet.ui.FacetEditorTab
 import com.intellij.openapi.fileChooser.FileChooser
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
-import com.intellij.openapi.options.ConfigurationException
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.ui.TitledSeparator
+import com.intellij.ui.ToolbarDecorator
 import com.intellij.ui.components.JBLabel
+import com.intellij.ui.components.JBList
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.table.JBTable
 import com.intellij.util.ui.FormBuilder
 import java.awt.BorderLayout
 import javax.swing.*
 import javax.swing.table.AbstractTableModel
-import com.intellij.ui.ToolbarDecorator
-import com.intellij.ui.components.JBList
-import javax.swing.DefaultListModel
-import com.intellij.ui.TitledSeparator
 
 class WebFacetEditorTab(private val configuration: WebFacetConfiguration) : FacetEditorTab() {
     private val mainPanel: JPanel = JPanel(BorderLayout())
