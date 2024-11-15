@@ -9,7 +9,12 @@ import com.intellij.openapi.util.InvalidDataException
 import com.intellij.openapi.util.WriteExternalException
 import org.jdom.Element
 
+/**
+ * Configuration class for Web Facet that stores and manages web module settings.
+ * Implements FacetConfiguration to integrate with IntelliJ's facet framework.
+ */
 class WebFacetConfiguration : FacetConfiguration {
+    // Default paths and configurations
     var webXmlPath: String = "src/main/webapp/WEB-INF/web.xml"
     var webRootPath: String = "src/main/webapp"
     var contextPath: String = "/"
@@ -17,6 +22,9 @@ class WebFacetConfiguration : FacetConfiguration {
     var deploymentDescriptors: MutableList<WebModuleDeploymentDescriptor> = mutableListOf()
     var webResourceDirectories: MutableMap<String, String> = mutableMapOf("/" to "")
     
+    /**
+     * Creates editor tabs for the facet configuration UI
+     */
     override fun createEditorTabs(
         editorContext: FacetEditorContext?,
         validatorsManager: FacetValidatorsManager?
@@ -24,8 +32,14 @@ class WebFacetConfiguration : FacetConfiguration {
         return arrayOf(WebFacetEditorTab(this))
     }
 
+    /**
+     * Reads configuration from XML element
+     * @param element XML element containing facet configuration
+     * @throws InvalidDataException if data cannot be read properly
+     */
     @Throws(InvalidDataException::class)
     override fun readExternal(element: Element) {
+        // Read basic configuration
         webXmlPath = element.getAttributeValue("web-xml-path") ?: webXmlPath
         webRootPath = element.getAttributeValue("web-root-path") ?: webRootPath
         contextPath = element.getAttributeValue("context-path") ?: contextPath
@@ -60,8 +74,14 @@ class WebFacetConfiguration : FacetConfiguration {
         }
     }
 
+    /**
+     * Writes configuration to XML element
+     * @param element XML element to write configuration to
+     * @throws WriteExternalException if data cannot be written properly
+     */
     @Throws(WriteExternalException::class)
     override fun writeExternal(element: Element) {
+        // Write basic configuration
         element.setAttribute("web-xml-path", webXmlPath)
         element.setAttribute("web-root-path", webRootPath)
         element.setAttribute("context-path", contextPath)
