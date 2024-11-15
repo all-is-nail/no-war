@@ -24,26 +24,3 @@ class WebFacet(facetType: FacetType<WebFacet, WebFacetConfiguration>,
     }
 }
 
-class WebFacetConfiguration : FacetConfiguration {
-    var webXmlPath: String = "src/main/webapp/WEB-INF/web.xml"
-    var webRootPath: String = "src/main/webapp"
-
-    override fun createEditorTabs(
-        editorContext: FacetEditorContext?,
-        validatorsManager: FacetValidatorsManager?
-    ): Array<FacetEditorTab> {
-        return arrayOf(WebFacetEditorTab(this))
-    }
-
-    @Throws(InvalidDataException::class)
-    override fun readExternal(element: Element) {
-        webXmlPath = element.getAttributeValue("web-xml-path") ?: webXmlPath
-        webRootPath = element.getAttributeValue("web-root-path") ?: webRootPath
-    }
-
-    @Throws(WriteExternalException::class)
-    override fun writeExternal(element: Element) {
-        element.setAttribute("web-xml-path", webXmlPath)
-        element.setAttribute("web-root-path", webRootPath)
-    }
-} 

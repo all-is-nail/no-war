@@ -27,6 +27,9 @@ class WebFacetType : FacetType<WebFacet, WebFacetConfiguration>(ID, STRING_ID, "
     }
 
     override fun isSuitableModuleType(moduleType: ModuleType<*>?): Boolean {
-        return moduleType?.id == "JAVA_MODULE"
+        return when (moduleType?.id) {
+            "JAVA_MODULE", "JAVA_EE_MODULE" -> true
+            else -> false
+        }
     }
 } 
